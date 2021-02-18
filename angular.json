@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "student-crud"
+    }
+  },
+  "defaultProject": "student-crud",
+  "cli": {
+    "analytics": false
+  }
 }
