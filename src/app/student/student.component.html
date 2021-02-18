@@ -1,31 +1,26 @@
-
-<style>
-	.card {
-		display: flex;
-		width: 400px;
-		height: 250px;
-		border: 2px solid;
-		padding: 10px 0px 10px 20px;
-	}
-
-	h5 {
-		color: green;
-	}
-</style>
-
 <div class="card m-4">
 	<h5>{{studentData.name}}</h5>
+
 	<p>ID: {{studentData.id}}</p>
+
 	<p>User name: {{studentData.username}}</p>
+
 	<p *ngIf="studentData.address.street; else add">Address: {{studentData.address.street}}</p>
+
 	<ng-template #add>
 		<p>Address: {{studentData.address}}</p>
 	</ng-template>
+
 	<p *ngIf="studentData.address.street; else street">City: {{studentData.address.city}}</p>
+
 	<ng-template #street>
 		<p>City: {{studentData.city}}</p>
 	</ng-template>
+
 	<div style="display:flex; width: 100%;">
-		<button (click)="updateStudent(studentData.id)" class="btn btn-outline-success">Update</button><button (click)="deleteStudent(studentData.id)" class="btn btn-outline-warning ml-2">Delete</button>
+        <!-- Update option  -->
+		<button (click)="updateStudent(studentData.id)" class="btn btn-outline-success">Update</button>
+        <!-- delete option  -->
+        <button (click)="deleteStudent(studentData.id)" class="btn btn-outline-warning ml-2">Delete</button>
 	</div>
 </div>

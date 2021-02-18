@@ -22,6 +22,8 @@ export class AppComponent {
   updatedData = {};
   updateId : number;
   constructor(private studentService: StudentService) {}
+
+  //fetches student data when page is loaded
   ngOnInit(id:number) {
     this.studentService.getStudent().subscribe(
       users => {
@@ -35,6 +37,8 @@ export class AppComponent {
     );
     this.studentsList.splice(id,1);
   }
+
+  //fetches student data on fetchStudent event
   fetchStudent() {
     this.notAvailable = false;
     this.studentService.getStudent().subscribe(
@@ -48,10 +52,14 @@ export class AppComponent {
       }
     );
   }
+
+  //to ignore error
   ignoreError() {
     this.error = null;
     this.notAvailable = true;
   }
+
+  //add student data
   onCreatePost(postData: {}) {
     this.name="";
     this.address="";
@@ -63,6 +71,8 @@ export class AppComponent {
     
   }
 
+
+  //sets the form field to the data that is to be updated
   onUpdate(iterator:number){
     this.isUpdate = true;
     this.updateId = this.studentsList[iterator].id;
@@ -71,6 +81,8 @@ export class AppComponent {
     this.city = this.studentsList[iterator].city;
     this.address = this.studentsList[iterator].address;
   }
+
+  //updates data through updateStudentData through services
   updateStudent(postData:{}){
     console.log(postData);
     this.isUpdate = false;

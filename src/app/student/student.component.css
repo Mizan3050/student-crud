@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  width: 400px;
+  height: 250px;
+  border: 2px solid;
+  padding: 10px 0px 10px 20px;
+}
+
+h5 {
+  color: green;
+}
