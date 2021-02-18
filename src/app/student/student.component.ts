@@ -14,7 +14,7 @@ export class StudentComponent implements OnInit {
   error = null;
 
   // Recieving data from parent Component
-  @Input() studentData: [];
+  @Input() studentData:any;
   @Input() _id: number;
 
   //sending data to parent component
