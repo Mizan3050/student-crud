@@ -24,7 +24,9 @@ export class StudentComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  fetchStudentData(){
+    this.studentService.getStudent().subscribe();
+  }
   //update student component redirects to the update student form
   updateStudent(id: number) {
     console.log(id);

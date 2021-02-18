@@ -66,7 +66,7 @@ export class AppComponent {
     this.city="";
     this.username="";
     this.studentService.addStudent(postData).subscribe(responseData => {
-      this.studentsList.push(responseData);
+      this.fetchStudent();
     });
     
   }
@@ -90,7 +90,9 @@ export class AppComponent {
     this.address="";
     this.city="";
     this.username="";
-    this.studentService.updateStudentData(this.updateId, postData).subscribe((result:any)=>{});
+    this.studentService.updateStudentData(this.updateId, postData).subscribe((result:any)=>{
+      this.fetchStudent();
+    });
   }
 
 }
