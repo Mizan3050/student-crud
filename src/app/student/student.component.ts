@@ -21,11 +21,12 @@ export class StudentComponent implements OnInit {
   @Output() newItemUpdate = new EventEmitter<number>();
   constructor() {}
   ngOnInit() {
-    
+    // console.log(this.studentData);
   }
   //update student component redirects to the update student form
   updateStudent(id: number) {
     this.newItemUpdate.emit(id);
+    // console.log(id);
   }
 
   //deleting student component
