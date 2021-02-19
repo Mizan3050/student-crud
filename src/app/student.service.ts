@@ -5,7 +5,8 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class StudentService {
-  url="http://localhost:3000/users";
+  // url1 ="http://localhost:3000/users";
+  url ="https://jsonplaceholder.typicode.com/users";
   constructor(private http: HttpClient) { }
   
   getStudent() {

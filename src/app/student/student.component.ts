@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StudentService } from "../student.service";
 import { Output, EventEmitter } from '@angular/core';
 
 
@@ -20,24 +19,17 @@ export class StudentComponent implements OnInit {
   //sending data to parent component
   @Output() newItemEvent = new EventEmitter<number>();
   @Output() newItemUpdate = new EventEmitter<number>();
-  constructor(private studentService :StudentService) {}
+  constructor() {}
   ngOnInit() {
-
-  }
-  fetchStudentData(){
-    this.studentService.getStudent().subscribe();
+    
   }
   //update student component redirects to the update student form
   updateStudent(id: number) {
-    console.log(id);
     this.newItemUpdate.emit(id);
   }
 
   //deleting student component
   deleteStudent(id: number) {
-    this.studentService.deleteStudentData(id).subscribe(result => {
-      console.log(id);
       this.newItemEvent.emit(id);
-    });
   }
 }

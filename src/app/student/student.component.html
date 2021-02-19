@@ -1,20 +1,20 @@
 <div class="card m-4">
-	<h5>{{studentData.name}}</h5>
+	<h5>{{studentData.name | isUndefined}}</h5>
 
-	<p>ID: {{studentData.id}}</p>
+	<p>ID: {{studentData.id | isUndefined}}</p>
 
-	<p>User name: {{studentData.username}}</p>
+	<p>User name: {{studentData.username | isUndefined}}</p>
 
-	<p *ngIf="studentData.address.street; else add">Address: {{studentData.address.street}}</p>
+	<p *ngIf="studentData.address.street; else add">Address: {{studentData.address.street | isUndefined}}</p>
 
 	<ng-template #add>
-		<p>Address: {{studentData.address}}</p>
+		<p>Address: {{studentData.address | isUndefined}}</p>
 	</ng-template>
 
-	<p *ngIf="studentData.address.street; else street">City: {{studentData.address.city}}</p>
+	<p *ngIf="studentData.address.street; else street">City: {{studentData.address.city | isUndefined}}</p>
 
 	<ng-template #street>
-		<p>City: {{studentData.city}}</p>
+		<p>City: {{studentData.city | isUndefined}}</p>
 	</ng-template>
 
 	<div style="display:flex; width: 100%;">

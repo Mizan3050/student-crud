@@ -81,6 +81,6 @@
       </button>
 		</div>
 		<p *ngIf="notAvailable">No data available</p>
-		<app-student *ngFor="let student of studentsList; let i = index" [studentData]="student" [_id]=[i] (newItemEvent)="ngOnInit($event)" (newItemUpdate)="onUpdate(i)"></app-student>
+		<app-student *ngFor="let student of studentsList; trackBy:trackByStudentId; let i = index" [studentData]="student" [_id]=[i] (newItemEvent)="deleteStudentData($event)" (newItemUpdate)="onUpdate(i)"></app-student>
 	</div>
 </div>

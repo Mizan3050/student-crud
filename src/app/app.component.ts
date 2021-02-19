@@ -24,7 +24,7 @@ export class AppComponent {
   constructor(private studentService: StudentService) {}
 
   //fetches student data when page is loaded
-  ngOnInit(id:number) {
+  ngOnInit() {
     this.studentService.getStudent().subscribe(
       users => {
         this.studentsList = users;
@@ -35,7 +35,7 @@ export class AppComponent {
         console.log(this.error);
       }
     );
-    this.studentsList.splice(id,1);
+    // this.studentsList.splice(id,1);
   }
 
   //fetches student data on fetchStudent event
@@ -67,6 +67,10 @@ export class AppComponent {
     this.username="";
     this.studentService.addStudent(postData).subscribe(responseData => {
       this.fetchStudent();
+    },
+    error => {
+      this.error = error.message;
+      console.log(this.error);
     });
     
   }
@@ -83,7 +87,7 @@ export class AppComponent {
   }
 
   //updates data through updateStudentData through services
-  updateStudent(postData:{}){
+  updateStudent(postData:{name: string, username: string, address: string, city: string}){
     console.log(postData);
     this.isUpdate = false;
     this.name="";
@@ -92,7 +96,24 @@ export class AppComponent {
     this.username="";
     this.studentService.updateStudentData(this.updateId, postData).subscribe((result:any)=>{
       this.fetchStudent();
+    },
+    error => {
+      this.error = error.message;
+      console.log(this.error);
     });
   }
 
+  trackByStudentId(index: number, student:any): string{
+    return student.id;
+  }
+
+  deleteStudentData(id:number){
+    this.studentService.deleteStudentData(id).subscribe(result => {
+      this.fetchStudent();
+    },
+    error => {
+      this.error = error.message;
+      console.log(this.error);
+    });
+  }
 }
